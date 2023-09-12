@@ -8,7 +8,7 @@ const addUser = `
     username,
     password
   )
-  VALUES ($1,$2,$3,$4) RETURNING id, firstName, lastName, username, created_at
+  VALUES ($1,$2,$3,$4) RETURNING id, firstName, lastName, username
 `;
 
 const findUserByUsername = `
