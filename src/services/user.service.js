@@ -1,9 +1,9 @@
 const {
     addUser,
     findUserByUsername,
-    findUserById, // Add this query
-    updateUserById, // Add this query
-    deleteUserById // Add this query
+    findUserById, 
+    updateUserById, 
+    deleteUserById 
 } = require('../queries/users');
 
 const { runQuery } = require('../config/database.config');
@@ -51,17 +51,15 @@ const fetchUserById = async (userId) => {
     return user[0];
 };
 
-// Update user by id (for editing a user's profile)
+// Update user by id 
 const updateUserProfile = async (userId, updatedData) => {
-    // You can add validation here to ensure the user can only edit their own profile
     const { firstName, lastName, username } = updatedData;
     const response = await runQuery(updateUserById, [firstName, lastName, username, userId]);
     return response[0];
 };
 
-// Delete user by id (for deleting a user's profile)
+// Delete user by id 
 const deleteUserProfile = async (userId) => {
-    // You can add validation here to ensure the user can only delete their own profile
     const response = await runQuery(deleteUserById, [userId]);
     return response[0];
 };

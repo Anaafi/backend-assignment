@@ -13,7 +13,7 @@ const createUser = async (req, res, next) => {
 // Fetch all users
 const getAllUsers = async (req, res, next) => {
     try {
-        // Implement the logic to fetch all users from the service
+        // logic to fetch all users from the service
         const users = await UserService.getAllUsers();
         return res.status(200).json({
             code: 200,
@@ -30,7 +30,7 @@ const getAllUsers = async (req, res, next) => {
 const getUserById = async (req, res, next) => {
     try {
         const userId = req.params.id; // Extract the user ID from the request parameters
-        // Implement the logic to fetch a user by ID from the service
+        // logic to fetch a user by ID from the service
         const user = await UserService.getUserById(userId);
         if (!user) {
             return res.status(404).json({
@@ -56,7 +56,7 @@ const updateUser = async (req, res, next) => {
     try {
         const userId = req.params.id; // Extract the user ID from the request parameters
         const updatedData = req.body; // Extract the updated user data from the request body
-        // Implement the logic to update the user's profile from the service
+        // logic to update the user's profile from the service
         const updatedUser = await UserService.updateUser(userId, updatedData);
         if (!updatedUser) {
             return res.status(404).json({
@@ -81,7 +81,7 @@ const updateUser = async (req, res, next) => {
 const deleteUser = async (req, res, next) => {
     try {
         const userId = req.params.id; // Extract the user ID from the request parameters
-        // Implement the logic to delete the user's profile from the service
+        // logic to delete the user's profile from the service
         const deletedUser = await UserService.deleteUser(userId);
         if (!deletedUser) {
             return res.status(404).json({
